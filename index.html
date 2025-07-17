@@ -3,46 +3,79 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Zyklusbasierter Ernaehrungsplan</title>
+    <title>Zyklusplan Übersicht</title>
     <style>
-        body { font-family: sans-serif; padding: 40px; line-height: 1.6; max-width: 800px; margin: auto; }
+        body { font-family: sans-serif; padding: 20px; max-width: 900px; margin: auto; }
         h1 { font-size: 26px; }
-        ul { list-style: none; padding: 0; }
-        li { margin: 6px 0; }
-        a { text-decoration: none; color: #336699; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .tag {
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+        .menstruation { background-color: #ffdddd; }
+        .follikel { background-color: #ddffdd; }
+        .ovulation { background-color: #ddddff; }
+        .luteal { background-color: #f0f0ff; }
+
+        .legende span {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 4px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .searchbox { margin-top: 20px; }
+        input[type='text'] {
+            padding: 8px;
+            width: 100%;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
-    <h1>Zyklusbasierter Ernaehrungsplan – Tagesansicht</h1>
-    <ul>
-        <li><a href="tag_01.html">Tag 1: Tag 1 (Di, 01.07.)</a></li>
-<li><a href="tag_02.html">Tag 2: Tag 2 (Mi, 02.07.)</a></li>
-<li><a href="tag_03.html">Tag 3: Tag 3 (Do, 03.07.)</a></li>
-<li><a href="tag_04.html">Tag 4: Tag 4 (Fr, 04.07.)</a></li>
-<li><a href="tag_05.html">Tag 5: Tag 5 (Sa, 05.07.)</a></li>
-<li><a href="tag_06.html">Tag 6: Tag 6 (So, 06.07.)</a></li>
-<li><a href="tag_07.html">Tag 7: Tag 7 (Mo, 07.07.)</a></li>
-<li><a href="tag_08.html">Tag 8: Tag 8 (Di, 08.07.)</a></li>
-<li><a href="tag_09.html">Tag 9: Tag 9 (Mi, 09.07.)</a></li>
-<li><a href="tag_10.html">Tag 10: Tag 10 (Do, 10.07.)</a></li>
-<li><a href="tag_11.html">Tag 11: Tag 11 (Fr, 11.07.)</a></li>
-<li><a href="tag_12.html">Tag 12: Tag 12 (Sa, 12.07.)</a></li>
-<li><a href="tag_13.html">Tag 13: Tag 13 (So, 13.07.)</a></li>
-<li><a href="tag_14.html">Tag 14: Tag 14 (Mo, 14.07.)</a></li>
-<li><a href="tag_15.html">Tag 15: Tag 15 (Di, 15.07.)</a></li>
-<li><a href="tag_16.html">Tag 16: Tag 16 (Mi, 16.07.)</a></li>
-<li><a href="tag_17.html">Tag 17: Tag 17 (Do, 17.07.)</a></li>
-<li><a href="tag_18.html">Tag 18: Tag 18 (Fr, 18.07.)</a></li>
-<li><a href="tag_19.html">Tag 19: Tag 19 (Sa, 19.07.)</a></li>
-<li><a href="tag_20.html">Tag 20: Tag 20 (So, 20.07.)</a></li>
-<li><a href="tag_21.html">Tag 21: Tag 21 (Mo, 21.07.)</a></li>
-<li><a href="tag_22.html">Tag 22: Tag 22 (Di, 22.07.)</a></li>
-<li><a href="tag_23.html">Tag 23: Tag 23 (Mi, 23.07.)</a></li>
-<li><a href="tag_24.html">Tag 24: Tag 24 (Do, 24.07.)</a></li>
-<li><a href="tag_25.html">Tag 25: Tag 25 (Fr, 25.07.)</a></li>
-<li><a href="tag_26.html">Tag 26: Tag 26 (Sa, 26.07.)</a></li>
-<li><a href="tag_27.html">Tag 27: Tag 27 (So, 27.07.)</a></li>
-<li><a href="tag_28.html">Tag 28: Tag 28 (Mo, 28.07.)</a></li>
-    </ul>
+    <h1>Zyklusplan – Übersicht aller 28 Tage</h1>
+
+    <div class="searchbox">
+        <input type="text" id="searchInput" placeholder="🔍 Nach Rezept, Zutat oder Phase suchen…" onkeyup="suche()">
+    </div>
+
+    <div class="grid" id="grid">
+        <a href="tag_01.html" class="tag menstruation">Tag 1</a><a href="tag_02.html" class="tag menstruation">Tag 2</a><a href="tag_03.html" class="tag menstruation">Tag 3</a><a href="tag_04.html" class="tag menstruation">Tag 4</a><a href="tag_05.html" class="tag menstruation">Tag 5</a><a href="tag_06.html" class="tag follikel">Tag 6</a><a href="tag_07.html" class="tag follikel">Tag 7</a><a href="tag_08.html" class="tag follikel">Tag 8</a><a href="tag_09.html" class="tag follikel">Tag 9</a><a href="tag_10.html" class="tag follikel">Tag 10</a><a href="tag_11.html" class="tag follikel">Tag 11</a><a href="tag_12.html" class="tag follikel">Tag 12</a><a href="tag_13.html" class="tag follikel">Tag 13</a><a href="tag_14.html" class="tag follikel">Tag 14</a><a href="tag_15.html" class="tag ovulation">Tag 15</a><a href="tag_16.html" class="tag ovulation">Tag 16</a><a href="tag_17.html" class="tag ovulation">Tag 17</a><a href="tag_18.html" class="tag luteal">Tag 18</a><a href="tag_19.html" class="tag luteal">Tag 19</a><a href="tag_20.html" class="tag luteal">Tag 20</a><a href="tag_21.html" class="tag luteal">Tag 21</a><a href="tag_22.html" class="tag luteal">Tag 22</a><a href="tag_23.html" class="tag luteal">Tag 23</a><a href="tag_24.html" class="tag luteal">Tag 24</a><a href="tag_25.html" class="tag luteal">Tag 25</a><a href="tag_26.html" class="tag luteal">Tag 26</a><a href="tag_27.html" class="tag luteal">Tag 27</a><a href="tag_28.html" class="tag luteal">Tag 28</a>
+    </div>
+
+    <div class="legende">
+        <h3>Farblegende</h3>
+        <span class="menstruation">Menstruation</span>
+        <span class="follikel">Follikelphase</span>
+        <span class="ovulation">Ovulation</span>
+        <span class="luteal">Lutealphase</span>
+    </div>
+
+    <script>
+        function suche() {
+            var input = document.getElementById("searchInput");
+            var filter = input.value.toLowerCase();
+            var grid = document.getElementById("grid");
+            var tags = grid.getElementsByTagName("a");
+
+            for (var i = 0; i < tags.length; i++) {
+                var txt = tags[i].textContent || tags[i].innerText;
+                if (txt.toLowerCase().indexOf(filter) > -1) {
+                    tags[i].style.display = "";
+                } else {
+                    tags[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
