@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Einkaufsliste</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        button {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        pre {
+            white-space: pre-wrap;
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Einkaufsliste (kopierbar)</h1>
+    <button onclick="copyList()">📋 In Zwischenablage kopieren</button>
+    <pre id="listText">Fr hst ck & Snacks:
+- Haferflocken
+- Hirse
+- Chiasamen
+- Kakaonibs
+- Leinsamen
+- Datteln
+- Bananen
+-  pfel
+- Birnen
+- Mango
+- Kokosflocken
+- Zimt
+- Waln sse
+- Sonnenblumenkerne
+- N sse gemischt
+- Reiswaffeln
+- Vollkornbrot
+- Avocado
+- Eier
+- Naturjoghurt
+Gem se & H lsenfr chte:
+- S kartoffeln
+- K rbis
+- Karotten
+- Zucchini
+- Brokkoli
+- Fenchel
+- Lauch
+- Sellerie
+- Rote Bete
+- Gurke
+- Paprika
+- Spinat
+- Rucola
+- Blattsalat
+- Petersilie
+- Kichererbsen
+- Linsen (rot und braun)
+- Ofengem se (z. B. Wurzelgem se)
+- Blumenkohl
+- Basilikum
+- Sprossen
+Kohlenhydrate & Getreide:
+- Naturreis
+- Vollkornpasta
+- Quinoa
+- Basmatireis
+- Kartoffeln
+Fette & Extras:
+- Oliven l
+- Mandelmus
+- Tahini
+- Joghurt (auch pflanzlich)
+- Kr uterquark
+- Kr uterbutter
+- Zitrone
+- Sesam
+- Minze</pre>
+
+    <script>
+        function copyList() {
+            const text = document.getElementById('listText').innerText;
+            navigator.clipboard.writeText(text).then(function() {
+                alert("Einkaufsliste kopiert!");
+            });
+        }
+    </script>
+</body>
+</html>
